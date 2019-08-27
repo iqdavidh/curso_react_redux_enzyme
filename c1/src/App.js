@@ -29,10 +29,13 @@ class App extends React.Component {
     console.log(id);
     notes.push(newNote);
 
-    this.setState({notes, text:''})
+    this.setState({notes, text:''});
 
   }
 
+  onClear(){
+    this.setState( {notes:[]})
+  }
 
   render() {
 
@@ -57,6 +60,8 @@ class App extends React.Component {
 
             listaNotes
           }
+
+          <Button onClick={event=>this.onClear(event)}>Clear</Button>
         </div>
     );
   }
