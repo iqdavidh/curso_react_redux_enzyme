@@ -61,7 +61,7 @@ class App extends React.Component {
             listaNotes
           }
 
-          <Button onClick={event=>this.onClear(event)}>Clear</Button>
+          <Button className="btnClear" onClick={event=>this.onClear(event)}>Clear</Button>
         </div>
     );
   }

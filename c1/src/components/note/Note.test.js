@@ -9,7 +9,7 @@ describe('Note', function () {
 
   let note=mount(<Note text={valorTexto} />);
 
-  it('muestra el texto de la nota', function () {
+  it('el texto pasado se agrega al cuerpo de la nota', function () {
 
     //console.log(note.debug());
     expect( note.find('p').text()).toEqual( valorTexto);
