@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {Form, FormControl, Button} from 'react-bootstrap';
-import Note from "./components/Note";
+import Note from "../components/note/Note";
 
 
 class App extends React.Component {
