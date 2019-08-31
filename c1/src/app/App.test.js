@@ -34,7 +34,12 @@ describe('App - render', function () {
 
 describe('App - el funcionamiento del formulario add nota', function () {
 
-  const app = mount(<App/>);
+  let app = null;
+
+
+  beforeEach(() => {
+    app = mount(<App/>);
+  });
 
 
   it('cambiar el texto del formcontrol se refleja en el state', () => {
@@ -47,9 +52,25 @@ describe('App - el funcionamiento del formulario add nota', function () {
     console.log(app.state());
 
     expect(app.state().text).toEqual(textoNota);
+  });
 
+  it('al hacer sumit se agrega a la lista notas "notes"', () => {
 
+    let textoNota = 'nota primera';
 
+    app.find('FormControl')
+        .simulate('change', {target: {value: textoNota}});
 
-  })
+    app.find('button.btnSubmit')
+        .simulate('click');
+
+    /*esto cambia el estate*/
+    console.log(app.state().notes);
+
+    let objectNota1= app.state().notes[0];
+    expect( typeof objectNota1).toEqual("object");
+    expect( objectNota1.id).toEqual(1);
+    expect( objectNota1.text).toEqual(textoNota);
+  });
+
 });
