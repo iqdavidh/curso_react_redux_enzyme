@@ -51,7 +51,7 @@ class App extends React.Component {
                 value={this.state.text}
                 onChange={event => this.setState({text: event.target.value})}
             />
-            <Button
+            <Button className="btnSubmit"
                 onClick={() => this.submit()}
             >Submit</Button>
           </Form>

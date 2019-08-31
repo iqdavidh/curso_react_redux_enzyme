@@ -7,22 +7,49 @@ describe('App - render', function () {
 
   const app = mount(<App/>);
 
+
+  it('se muestra control Form', () => {
+    expect(app.find('Form').exists()).toBe(true);
+  });
+
   it('se muestra el h2 titulo correcto', () => {
-    console.debug(app.debug());
+    //console.debug(app.debug());
     expect(app.find('h2').text()).toEqual('Note to self2');
   });
 
-  it('se muestra el boton clear',()=>{
+  it('se muestra el boton clear', () => {
     expect(app.find('button.btnClear').text()).toEqual('Clear');
   });
 
 
-  it('se muestra control Form',()=>{
-    expect( app.find('Form').exists()).toBe(true);
-
+  it('se muestra boton submit', () => {
+    expect(app.find('button.btnSubmit').text()).toEqual('Submit');
   });
-
 
 
 });
 
+
+/* *********************************************************** */
+
+describe('App - el funcionamiento del formulario add nota', function () {
+
+  const app = mount(<App/>);
+
+
+  it('cambiar el texto del formcontrol se refleja en el state', () => {
+
+    let textoNota = 'un dumy texto primero';
+
+    app.find('FormControl')
+        .simulate('change', {target: {value: textoNota}});
+
+    console.log(app.state());
+
+    expect(app.state().text).toEqual(textoNota);
+
+
+
+
+  })
+});
