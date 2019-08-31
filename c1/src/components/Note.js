@@ -6,7 +6,9 @@ class Note extends Component {
 
     return (
         <div className="nota">
-          {this.props.text}
+          <p>
+            {this.props.text}
+          </p>
         </div>
     );
   }
